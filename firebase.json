@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "site": "netflix-live-2664d",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -8,3 +9,5 @@
     ]
   }
 }
+
+

@@ -3,11 +3,13 @@ import LoginBackground from '../assets/login.jpeg';
 import { useState } from "react";
 import { useRef } from "react";
 import { validate } from '../utils/validate';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../utils/firebase_config";
+import { useNavigate } from "react-router-dom";
 
 
 export function Login() {
+    const navigate = useNavigate();
     const [isSigninForm, setIsSignInForm] = useState(true);
     const emailRef = useRef(null);
     const nameRef = useRef(null);
@@ -23,15 +25,12 @@ export function Login() {
         const emailInput = (emailRef.current.value)
         const passwordInput = (passwordRef.current.value);
         const errorMessage = validate(emailInput, passwordInput, passwordInput);
-        console.log("Er ");
-        console.log(errorMessage)
         if (errorMessage) {
             setErrorMessage("Error: ", errorMessage);
             return;
         }
 
         if (!isSigninForm) {
-            console.log("false")
             createUserWithEmailAndPassword(auth, emailInput, passwordInput)
                 .then((userCredential) => {
                     // Signed up 
@@ -39,6 +38,7 @@ export function Login() {
                     // ...
                     console.log("Success");
                     console.log(user);
+                    navigate('/browse')
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -48,7 +48,20 @@ export function Login() {
                 });
         }
         else {
-            console.log('true')
+            signInWithEmailAndPassword(auth, emailInput, passwordInput)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                    console.log("Signed in Success");
+                    console.log(user);
+                    navigate('/browse')
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMessage(errorMessage + " : " + errorCode)
+                });
         }
 
     }
@@ -56,8 +69,8 @@ export function Login() {
     return (
         <div>
             <Header />
-            <div className="absolute">
-                <img src={LoginBackground} />
+            <div className="absolute w-full">
+                <img className="w-full h-screen object-cover" src={LoginBackground} />
             </div>
             <form className="absolute w-3/12 p-12 bg-black/70 my-36 mx-auto right-0 left-0 text-white rounded-lg">
                 <h1 className="font-bold text-3xl py-4">

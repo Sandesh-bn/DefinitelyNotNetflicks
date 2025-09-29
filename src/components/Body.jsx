@@ -1,21 +1,25 @@
 import { Playlist } from "./PlayList";
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Login } from "./Login";
 
-
-export function Body(){
+export function Body() {
+    
     const appRouter = createBrowserRouter([
         {
             path: "/",
-            element: <Login/>
+            element: <Login />
         },
         {
             path: "/browse",
-            element: <Playlist/>
+            element: <Playlist />
         }
     ]);
-    return(
+
+    
+
+    return (
         <div>
-        <RouterProvider router={appRouter}/>
+            <RouterProvider router={appRouter} />
         </div>
     )
 }

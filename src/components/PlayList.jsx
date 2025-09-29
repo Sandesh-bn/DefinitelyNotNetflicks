@@ -1,8 +1,8 @@
-
+import { Header } from "./Header"
 export function Playlist(){
     return(
         <>
-        Playlist
+        <Header/>
         </>
     )
 }
