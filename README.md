@@ -30,3 +30,20 @@ You can check it out here: [\[Rentflicks and chill\]](https://nflixandchilll.web
 -   Let users watch full length movies 🎬
     
 -   Smarter search + recommendations
+
+### Previews:
+
+![Preview 1](https://raw.githubusercontent.com/Sandesh-bn/DefinitelyNotNetflicks/refs/heads/master/src/assets/preview-1.jpg)
+
+
+![Preview 2](https://raw.githubusercontent.com/Sandesh-bn/DefinitelyNotNetflicks/refs/heads/master/src/assets/preview-2.jpg)
+
+
+![Preview 3](https://raw.githubusercontent.com/Sandesh-bn/DefinitelyNotNetflicks/refs/heads/master/src/assets/preview-3.jpg)
+
+
+![Preview 4](https://raw.githubusercontent.com/Sandesh-bn/DefinitelyNotNetflicks/refs/heads/master/src/assets/preview-4.jpg)
+
+
+![Preview 5](https://raw.githubusercontent.com/Sandesh-bn/DefinitelyNotNetflicks/refs/heads/master/src/assets/preview-5.jpg)
+
