@@ -47,8 +47,6 @@ export function Playlist() {
         const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
         const data = await fetch(url, API_OPTIONS);
         const json = await data.json();
-        console.log("UP");
-        console.log(json)
         dispatch(addUpcomingMovies(json.results))
     }
 

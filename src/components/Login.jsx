@@ -24,7 +24,9 @@ export function Login() {
         const passwordInput = (passwordRef.current.value);
         const errorMessage = validate(emailInput, passwordInput, passwordInput);
         if (errorMessage) {
-            setErrorMessage("Error: ", errorMessage);
+            console.log("EM");
+            console.log(errorMessage)
+            setErrorMessage("Error: " + errorMessage);
             return;
         }
 
