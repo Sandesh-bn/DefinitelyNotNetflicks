@@ -9,7 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 
-export function Header({ setShowSearchBar, showSearchBar }) {
+export function Header() {
     let navigate = useNavigate();
     const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
@@ -53,11 +53,9 @@ export function Header({ setShowSearchBar, showSearchBar }) {
 
 
     return (
-        <div className='fixed px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between'>
+        <div className='absolute fixedpx-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between'>
             <img className='w-40' src={Logo} />
             {user && <div className="flex p-2">
-                
-                <button onClick={()=>setShowSearchBar(prev => !prev)} className='px-4 mx-4 text-white'>{showSearchBar? 'Home': '⌕ AI Search'}</button>
                 <img className='w-10 h-10' src={LoggedInIcon} />
                 <button onClick={handleSignout} className='p-2 font-bold text-white m-2'>Sign Out</button>
             </div>}

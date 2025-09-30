@@ -65,7 +65,6 @@ export function Login() {
     return (
         <div>
             <Header />
-            
             <div className="absolute w-full">
                 <img className="w-full h-screen object-cover" src={LoginBackground} />
             </div>

@@ -1,21 +1,13 @@
 import { Header } from "./Header"
 import { API_OPTIONS } from "../utils/constants";
-import { useEffect , useState} from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies, addPopularMovies, addUpcomingMovies, addTopRatedMovies } from "../utils/moviesSlice";
 import { HeroContainer } from "./HeroContainer";
 import { SuggestionContainer } from "./SuggestionContainer";
-import { AISearch } from "./AISearch";
-
 export function Playlist() {
-    const [showSearchBar, setShowSearchBar] = useState(false);
 
     const dispatch = useDispatch();
-    
-    function handleSearch(){
-        setShowSearchBar(true);
-
-    }
 
     async function getNowPlayingMovies() {
         const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
@@ -62,15 +54,9 @@ export function Playlist() {
 
     return (
         <>
-            <Header setShowSearchBar={setShowSearchBar} showSearchBar={showSearchBar}/>
-            {
-                showSearchBar? 
-                <AISearch/>:
-                <>
-                    <HeroContainer/>
-                    <SuggestionContainer/>
-                </>
-            }
+            <Header />
+            <HeroContainer/>
+            <SuggestionContainer/>
         </>
     )
 }
