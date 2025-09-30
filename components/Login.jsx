@@ -66,7 +66,7 @@ export function Login() {
         <div>
             <Header />
             <div className="absolute w-full">
-                <img className="w-full h-screen object-cover" src={LoginBackground} />
+                <img className="w-full object-cover" src={LoginBackground} />
             </div>
             <form className="absolute w-3/12 p-12 bg-black/70 my-36 mx-auto right-0 left-0 text-white rounded-lg">
                 <h1 className="font-bold text-3xl py-4">
