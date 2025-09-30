@@ -26,7 +26,7 @@ export function Header() {
 
     useEffect(() => {
         // whenever user signs in or signs up or logs out.
-        onAuthStateChanged(auth, (user) => {
+        let unsubsribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in
                 const { uid, email, displayName } = user;
@@ -45,6 +45,10 @@ export function Header() {
                 navigate('/')
             }
         });
+
+        // unsusbribe from above function when component unmounts
+        return () => unsubsribe();
+
     }, []);
 
 

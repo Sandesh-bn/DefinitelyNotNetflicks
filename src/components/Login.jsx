@@ -5,11 +5,9 @@ import { useRef } from "react";
 import { validate } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../utils/firebase_config";
-import { useNavigate } from "react-router-dom";
 
 
 export function Login() {
-    const navigate = useNavigate();
     const [isSigninForm, setIsSignInForm] = useState(true);
     const emailRef = useRef(null);
     const nameRef = useRef(null);
@@ -38,7 +36,6 @@ export function Login() {
                     // ...
                     console.log("Success");
                     console.log(user);
-                    navigate('/browse')
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -55,7 +52,6 @@ export function Login() {
                     // ...
                     console.log("Signed in Success");
                     console.log(user);
-                    navigate('/browse')
                 })
                 .catch((error) => {
                     const errorCode = error.code;
