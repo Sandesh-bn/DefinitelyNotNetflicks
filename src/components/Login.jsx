@@ -83,7 +83,7 @@ export function Login() {
                     {isSigninForm ? "Sign In" : "Sign Up"}
                 </button>
                 <p className="py-4 cursor-pointer" onClick={handleToggleForm}>
-                    {isSigninForm ? "New to Netflix? Sign up Now" : "Already Registered? Sign In Now"}
+                    {isSigninForm ? "New to Rentflicks? Sign up Now" : "Already Registered? Sign In Now"}
                 </p>
             </form>
         </div>
