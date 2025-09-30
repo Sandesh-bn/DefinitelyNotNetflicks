@@ -12,7 +12,8 @@ You can check it out here: [\[Rentflicks and chill\]](https://nflixandchilll.web
 -   Search powered by ChatGPT to suggest movie names. Uses earlier model and can make mistakes.
     
 -   Pulls movie details from TMDB API
-    
+
+-   Keys are free-tier so you won't be able to use it. To run it locally, feel free to use your own keys.
 
 ### What’s next:
 
