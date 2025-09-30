@@ -5,7 +5,7 @@ import LoginBackground from '../assets/login.jpeg';
 export function AISearch() {
     return (
         <div>
-            <div className="absolute w-full -z-10">
+            <div className="fixed w-full -z-10">
                 <img className="w-full h-screen object-cover" src={LoginBackground} />
             </div>
             <SearchBar />
