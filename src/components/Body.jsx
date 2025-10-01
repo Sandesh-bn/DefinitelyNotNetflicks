@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Login } from "./Login";
 
 export function Body() {
-    console.log("Welcome 2 Rentflicks")
+    console.log("Welcome to Rentflicks")
     const appRouter = createBrowserRouter([
         {
             path: "/",
