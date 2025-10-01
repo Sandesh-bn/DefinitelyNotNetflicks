@@ -13,7 +13,7 @@ const client = new OpenAI({
 
 export function SearchBar(movie) {
     const searchTextRef = useRef(null);
-        const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 
     async function getMovieInfo(movie) {
@@ -26,18 +26,21 @@ export function SearchBar(movie) {
         return json.results;
     }
 
-
-    async function handleSubmit(e) {
+    // use this for onsubmit to get search recommendations from 
+    // chatgpt. Requires opeanapi key
+    async function GPTSearch(e){
         console.log("handlesubmit")
         e.preventDefault();
+
+
         let searchTerm = searchTextRef.current.value;
         searchTerm = searchTerm.trim();
 
-        if (searchTerm == ''){
+        if (searchTerm == '') {
             dispatch(addMovieResult([]))
             return;
         }
-        
+
         let content = "Only give me the name of the movies comma separated and do not include numbers, " + searchTerm;
         if (!content.toLocaleLowerCase().endsWith("movies"))
             content += "movies";
@@ -60,6 +63,32 @@ export function SearchBar(movie) {
         // console.log('mdb');
         // console.log(movieData)
         dispatch(addMovieResult(movieData))
+    }
+
+
+    async function handleSubmit(e) {
+        console.log("handlesubmit")
+        e.preventDefault();
+
+
+        let searchTerm = searchTextRef.current.value;
+        searchTerm = searchTerm.trim();
+
+        if (searchTerm == '') {
+            dispatch(addMovieResult([]))
+            return;
+        }
+
+        try {
+            
+            const url = `https://api.themoviedb.org/3/search/multi?query=${searchTerm}`
+            const data = await fetch(url, API_OPTIONS);
+
+            const json = await data.json();
+            dispatch(addMovieResult(json.results))
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
     }
 
     return (
